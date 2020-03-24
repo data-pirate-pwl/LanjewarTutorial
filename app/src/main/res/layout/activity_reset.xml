@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResetActivity"
+    android:background="@drawable/bgcol">
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="178dp"
+        app:srcCompat="@drawable/ic_action_mail"
+        android:layout_centerHorizontal="true"
+      />
+
+    <EditText
+        android:layout_marginTop="20sp"
+        android:id="@+id/email_reset"
+        android:layout_width="303dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:textColorHint="#040303"
+        android:hint="E-Mail"
+        android:textColor="#040303"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+       android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView2"
+         />
+
+    <Button
+        android:id="@+id/verify_re"
+        android:layout_width="264dp"
+        android:layout_height="42dp"
+        android:layout_below="@id/pass_re"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_rectangle"
+        android:text="Send New Email Verification Link"
+        android:textColor="#ffffff"
+       />
+
+    <Button
+        android:id="@+id/reset_re"
+        android:layout_width="264dp"
+        android:layout_height="42dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/verify_re"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_rectangle"
+        android:text="Request Reset Password"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+      />
+
+    <EditText
+        android:id="@+id/pass_re"
+        android:layout_width="303dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_below="@+id/email_reset"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColorHint="#040303"
+        android:textColor="#040303"
+        android:hint="Password(Only For verification)"/>
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/progress_Bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="60dp"
+        android:background="#ffffff"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminate = "true"
+        android:max="100"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:progress="0"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"/>
+</RelativeLayout>

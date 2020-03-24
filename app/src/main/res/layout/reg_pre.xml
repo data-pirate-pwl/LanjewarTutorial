@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/t2"
+        android:layout_marginTop="50dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:text="If You have Not Registered, Click Below to Register"
+        />
+
+    <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/t2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/idcol" />
+
+    <Button
+        android:id="@+id/reg"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv2"
+        android:layout_width="300dp"
+        android:background="@drawable/button_rectangle"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="Register" />
+    <Button
+        android:id="@+id/logme"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/transfer_but"
+        android:textSize="15dp"
+        android:text="If you have already registered Click here to login"/>
+
+
+</RelativeLayout>
