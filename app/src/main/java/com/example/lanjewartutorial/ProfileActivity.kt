@@ -1,6 +1,7 @@
 package com.example.lanjewartutorial
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,10 +17,7 @@ import com.example.lanjewartutorial.proFrag.student_personal
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.pro_tem.*
 
@@ -32,8 +30,6 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-
-
         mAuth = FirebaseAuth.getInstance()
 
         val bundle:Bundle? = intent.extras
@@ -44,21 +40,6 @@ class ProfileActivity : AppCompatActivity() {
             val intent= Intent(this@ProfileActivity,LoginActivity::class.java)
             startActivity(intent)
         }
-        setSupportActionBar(toolbar_profile)
-        user_name.text="aa"
-        val toolbar:Toolbar=findViewById(R.id.toolbar_profile)
-        setSupportActionBar(toolbar_profile)
-        supportActionBar!!.title=""
-
-
-        val tabLayout:TabLayout =findViewById(R.id.tab_layout)
-        val viewPager :ViewPager = findViewById(R.id.view_pager)
-        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-
-        viewPagerAdapter.addFragment(student_personal(),"About Me")
-        viewPagerAdapter.addFragment(academic(),"Academic")
-        viewPager.adapter=viewPagerAdapter
-        tabLayout.setupWithViewPager(viewPager)
 
         logout.setOnClickListener{
             mAuth.signOut()
@@ -67,41 +48,22 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        refUsers = FirebaseDatabase.getInstance().reference.child(mAuth.currentUser.toString())
+        val userr=mAuth.currentUser
+        refUsers = FirebaseDatabase.getInstance().getReference("Users")
+        refUsers.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(p0: DataSnapshot)
+            {
+                user_name.text= p0.child(userr!!.uid).child("username").value.toString()
+            }
+
+        });
 
     }
 
-
-    internal class ViewPagerAdapter(fragmentManager: FragmentManager):FragmentPagerAdapter(fragmentManager) {
-
-        private val fragments:ArrayList<Fragment>
-        private val titles: ArrayList<String>
-
-        init {
-            fragments= ArrayList<Fragment>()
-            titles= ArrayList<String>()
-
-        }
-        override fun getItem(position: Int): Fragment {
-            return fragments[position]
-        }
-
-        override fun getCount(): Int {
-            return fragments.size
-        }
-
-
-        fun addFragment(fragment: Fragment,title:String)
-        {
-            fragments.add(fragment)
-            titles.add(title)
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return  titles[position]
-        }
-
-
     }
-}
+
 

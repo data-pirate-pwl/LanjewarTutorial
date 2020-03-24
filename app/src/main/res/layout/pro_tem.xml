@@ -48,26 +48,21 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv2"
+            android:textSize="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F3B4A0"
-            app:tabIndicatorColor="@android:color/white"
-            >
+            android:text="TextView" />
+    </RelativeLayout>
 
-
-        </com.google.android.material.tabs.TabLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        >
-
-    </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

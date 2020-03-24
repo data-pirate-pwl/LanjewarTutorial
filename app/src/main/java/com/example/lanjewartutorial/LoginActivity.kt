@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity()
 
         mAuth= FirebaseAuth.getInstance()
 
+
         reset.setOnClickListener{
             val intent=Intent(this@LoginActivity,ResetActivity::class.java)
             startActivity(intent)
@@ -33,6 +34,9 @@ class LoginActivity : AppCompatActivity()
 
     override fun onBackPressed() {
         super.onBackPressed()
+        val intent=Intent(this@LoginActivity,MainActivity::class.java)
+        startActivity(intent)
+
     }
 
     private fun loginUser() {
