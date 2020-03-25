@@ -14,12 +14,12 @@
             android:icon="@drawable/id"
             android:title="Update Info" />
         <item
-            android:id="@+id/nav_login"
+            android:id="@+id/nav_logout"
             android:icon="@drawable/log"
-            android:title="@string/menu_login" />
+            android:title="Logout" />
         <item
             android:id="@+id/nav_contact"
-            android:icon="@drawable/con"
+            android:icon="@drawable/contactt"
             android:title="@string/menu_contact" />
         <item
             android:id="@+id/nav_aboutus"
