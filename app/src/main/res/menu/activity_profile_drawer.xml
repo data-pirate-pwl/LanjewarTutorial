@@ -14,16 +14,13 @@
             android:icon="@drawable/id"
             android:title="Update Info" />
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_notice"
             android:icon="@drawable/log"
             android:title="Logout" />
         <item
-            android:id="@+id/nav_contact"
+            android:id="@+id/nav_logout"
             android:icon="@drawable/contactt"
             android:title="@string/menu_contact" />
-        <item
-            android:id="@+id/nav_aboutus"
-            android:icon="@drawable/deve"
-            android:title="@string/menu_aboutus" />
+
     </group>
 </menu>
