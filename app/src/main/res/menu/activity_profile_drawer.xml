@@ -7,20 +7,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_aboutme"
-            android:icon="@drawable/homee"
+            android:icon="@drawable/user01"
             android:title="About Me" />
         <item
             android:id="@+id/nav_register"
-            android:icon="@drawable/id"
+            android:icon="@drawable/refresh"
             android:title="Update Info" />
         <item
             android:id="@+id/nav_notice"
-            android:icon="@drawable/log"
-            android:title="Logout" />
+            android:icon="@drawable/notebook"
+            android:title="Notice" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/contactt"
-            android:title="@string/menu_contact" />
+            android:icon="@drawable/exit"
+            android:title="Logout" />
 
     </group>
 </menu>

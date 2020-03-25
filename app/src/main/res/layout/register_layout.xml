@@ -11,8 +11,8 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/transfer_but"
-        app:srcCompat="@drawable/ic_action_loginn" />
+
+        app:srcCompat="@drawable/user003" />
 
     <EditText
         android:id="@+id/et_reg_name"
