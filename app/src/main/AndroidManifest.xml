@@ -24,7 +24,7 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" android:noHistory="true" />
         <activity android:name=".ResetActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"/>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".MainActivity"

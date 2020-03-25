@@ -91,6 +91,7 @@ class RegisterActivity : AppCompatActivity() {
                                 userHashMap["fname"] = ".."
                                 userHashMap["mname"] = ".."
                                 userHashMap["lname"] = ".."
+                                userHashMap["gender"]
                                 userHashMap["lclassgrade"] = "0"
                                 userHashMap["class10"] = "0"
                                 userHashMap["class12"] = "0"
@@ -121,9 +122,6 @@ class RegisterActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     Thread(Runnable {
-                        // dummy thread mimicking some operation whose progress cannot be tracked
-
-                        // display the indefinite progressbar
                         this@RegisterActivity.runOnUiThread(java.lang.Runnable {
                             progress_Bar.visibility = View.INVISIBLE
                         })
