@@ -61,6 +61,7 @@ class LoginActivity : AppCompatActivity()
             }).start()
             Toast.makeText(this@LoginActivity,"Signing in , Please Wail...",Toast.LENGTH_LONG).show()
 
+
             mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener{
                     task->
@@ -69,7 +70,6 @@ class LoginActivity : AppCompatActivity()
                         if (mAuth.currentUser!!.isEmailVerified){
                         val intent = Intent (this@LoginActivity,ProfileActivity::class.java)
                             intent.putExtra("email",email)
-                            intent.putExtra("password",password)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)}
                         else

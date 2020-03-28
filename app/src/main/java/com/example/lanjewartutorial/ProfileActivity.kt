@@ -1,6 +1,7 @@
 package com.example.lanjewartutorial
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -35,8 +37,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var mAuth: FirebaseAuth
     lateinit var user: FirebaseUser
     lateinit var refUsers: DatabaseReference
-    private var firebaseUserID:String=""
-     var email : String? = null
+    var email : String? = null
 
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -50,30 +51,18 @@ class ProfileActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view_profile)
 
         val navController = findNavController(R.id.nav_host_fragment_profile)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_profile_aboutme, R.id.nav_register, R.id.nav_login,R.id.nav_contact,R.id.nav_aboutus,R.id.action_logout), drawerLayout)
+            R.id.nav_profile_aboutme, R.id.nav_update0,R.id.action_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         //var text1:String =findViewById(R.id.user_name_profile)
-        Thread(Runnable {
-            this@ProfileActivity.runOnUiThread(java.lang.Runnable {
-                pb.visibility = View.VISIBLE
-            })
-        }).start()
+
 
         mAuth = FirebaseAuth.getInstance()
 
-        val bundle:Bundle? = intent.extras
+       val bundle:Bundle? = intent.extras
         email=bundle!!.getString("email")
-        val password = bundle!!.getString("password")
-
-        mAuth.signInWithEmailAndPassword(email!!,password!!).addOnCanceledListener{
-            val intent= Intent(this@ProfileActivity,LoginActivity::class.java)
-            startActivity(intent)
-        }
-
         updateNavHead()
 
     }
@@ -82,6 +71,24 @@ class ProfileActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.profile, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId)
+    {
+        R.id.action_logout ->
+        {
+            onBackPressed()
+            true
+        }
+        R.id.nav_logout ->
+        {
+           onBackPressed()
+            true
+        }
+
+
+        else->   super.onOptionsItemSelected(item)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_profile)
@@ -109,14 +116,37 @@ class ProfileActivity : AppCompatActivity() {
                 username_pro.text=p0.child(userr!!.uid).child("username").value.toString()
                 mail.text =email
                 Glide.with(this@ProfileActivity).load(p0.child(userr!!.uid).child("profile").value.toString()).into(userpic)
-                Thread(Runnable {
-                    this@ProfileActivity.runOnUiThread(java.lang.Runnable {
-                        pb.visibility = View.INVISIBLE
-                    })
-                }).start()
+
 
             }
 
         });
+    }
+
+    override fun onBackPressed() {
+
+        val dialogBuilder = android.app.AlertDialog.Builder(this)
+
+        dialogBuilder.setMessage("Do you want to logout ?")
+            .setCancelable(false)
+            .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                    dialog, id -> logout()
+            })
+            .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                    dialog, id -> dialog.cancel()
+            })
+
+        val alert = dialogBuilder.create()
+        // set title for alert dialog box
+        alert.setTitle("The Tuition Centre")
+        // show alert dialog
+        alert.show()
+    }
+
+    private fun logout() {
+        mAuth.signOut()
+        val intent = Intent(this@ProfileActivity,LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

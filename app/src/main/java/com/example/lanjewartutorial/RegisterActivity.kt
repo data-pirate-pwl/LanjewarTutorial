@@ -38,6 +38,10 @@ class RegisterActivity : AppCompatActivity() {
         {
             et_reg_name.setError("Field Required")
         }
+        else if(username.length>10)
+        {
+            et_reg_name.setError("Username Cannot be greater than 10 character.")
+        }
         else if(email.isEmpty())
         {
             et_reg_email.setError("Field Required")
@@ -66,7 +70,6 @@ class RegisterActivity : AppCompatActivity() {
             }).start()
 
             Toast.makeText(this@RegisterActivity,"Registration In Process, Please Wail...",Toast.LENGTH_LONG).show()
-
             mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener{task ->
                     if(task.isSuccessful) {
@@ -87,6 +90,7 @@ class RegisterActivity : AppCompatActivity() {
                                 userHashMap["dob"] = "01/01/2001"
                                 userHashMap["course"] = "none"
                                 userHashMap["class"] = "none"
+                                userHashMap["aadhar"] = ".."
                                 userHashMap["name"] = ".."
                                 userHashMap["fname"] = ".."
                                 userHashMap["mname"] = ".."

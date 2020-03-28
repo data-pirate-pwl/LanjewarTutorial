@@ -22,25 +22,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_profile"
         app:menu="@menu/activity_profile_drawer" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:id="@+id/pb"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            />
-
-    </RelativeLayout>
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

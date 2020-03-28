@@ -2,39 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/mobile_navigation_profile"
     app:startDestination="@+id/nav_profile_aboutme">
 
     <fragment
         android:id="@+id/nav_profile_aboutme"
         android:name="com.example.lanjewartutorial.proFrag.aboutme.AboutmeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_aboutme">
-
-
-    </fragment>
+        android:label="My Self"
+        tools:layout="@layout/fragment_aboutme"/>
     <fragment
-        android:id="@+id/nav_update"
+        android:id="@+id/pdf"
+        android:label="Personal Details"
+        android:name="com.example.lanjewartutorial.proFrag.aboutme.PersonalDetailsFragment"
+        tools:layout="@layout/fragment_personaldetails"/>
+    <fragment
+        android:id="@+id/nav_update0"
         android:name="com.example.lanjewartutorial.proFrag.update.UpdateFragment"
-        android:label="@string/menu_register"
+        android:label="Update"
         tools:layout="@layout/fragment_update" />
 
     <fragment
-        android:id="@+id/nav_aboutus"
-        android:name="com.example.lanjewartutorial.ui.aboutus.AboutusFragment"
+        android:id="@+id/nav_notice"
+        android:name="com.example.lanjewartutorial.proFrag.notice.NoticeFragment"
         android:label="@string/menu_aboutus"
-        tools:layout="@layout/fragment_aboutus"/>
+        tools:layout="@layout/fragment_notice"/>
 
 
     <fragment
-        android:id="@+id/nav_contact"
-        android:name="com.example.lanjewartutorial.ui.contact.ContactFragment"
+        android:id="@+id/nav_logout"
+        android:name="com.example.lanjewartutorial.proFrag.logout.LogoutFragment"
         android:label="@string/menu_contact"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/fragment_logout" />
 
-    <fragment
-        android:id="@+id/nav_login"
-        android:name="com.example.lanjewartutorial.ui.login.LoginFragment"
-        android:label="@string/menu_login"
-        tools:layout="@layout/fragment_login" />
 </navigation>

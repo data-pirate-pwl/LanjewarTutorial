@@ -1,5 +1,7 @@
 package com.example.lanjewartutorial
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -43,5 +45,25 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+
+        val dialogBuilder = AlertDialog.Builder(this)
+
+        dialogBuilder.setMessage("Do you want to close this application ?")
+            .setCancelable(false)
+            .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                    dialog, id -> System.exit(0)
+            })
+            .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                    dialog, id -> dialog.cancel()
+            })
+
+        val alert = dialogBuilder.create()
+        // set title for alert dialog box
+        alert.setTitle("The Tuition Centre")
+        // show alert dialog
+        alert.show()
     }
 }

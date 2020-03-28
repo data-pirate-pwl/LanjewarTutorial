@@ -6,46 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".proFrag.aboutme.AboutmeFragment"
     android:orientation="vertical">
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
 
-    <TextView
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+         <Button
+             android:id="@+id/personal_details"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:text="Personal Details"
+             />
+        </LinearLayout>
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/pname"/>
-    <TextView
-        android:layout_below="@+id/pname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/father"/>
-    <TextView
-        android:layout_below="@+id/father"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/mother"/>
-    <TextView
-        android:layout_below="@id/mother"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/last"/>
-    <TextView
-        android:layout_below="@+id/last"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/DOB"/>
-    <TextView
-        android:layout_below="@+id/DOB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/gender"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+            <Button
+                android:id="@+id/apply"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Apply For Course"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+            <Button
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Applied Course Details"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+            <Button
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""/>
+        </LinearLayout>
 
-
-
-
+    </LinearLayout>
 
 </RelativeLayout>

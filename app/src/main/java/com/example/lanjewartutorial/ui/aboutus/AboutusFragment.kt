@@ -11,20 +11,16 @@ import com.example.lanjewartutorial.R
 
 class AboutusFragment : Fragment() {
 
-    private lateinit var aboutusViewModel:AboutusViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        aboutusViewModel =
-            ViewModelProviders.of(this).get(AboutusViewModel::class.java)
+
+
         val root = inflater.inflate(R.layout.fragment_aboutus, container, false)
-        val textView: TextView = root.findViewById(R.id.text_aboutus)
-        aboutusViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
