@@ -16,8 +16,10 @@
             android:layout_width="fill_parent">
          <Button
              android:id="@+id/personal_details"
+             android:textSize="25sp"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="#E6D08D"
              android:text="Personal Details"
              />
         </LinearLayout>
@@ -27,10 +29,12 @@
             android:layout_height="0dp"
             android:layout_width="fill_parent">
             <Button
-                android:id="@+id/apply"
+                android:id="@+id/contact"
+                android:background="#96E499"
+                android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Apply For Course"/>
+                android:text="Contact Details"/>
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
@@ -38,6 +42,8 @@
             android:layout_width="fill_parent">
             <Button
                 android:id="@+id/course"
+                android:background="#99C1D3"
+                android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Applied Course Details"/>

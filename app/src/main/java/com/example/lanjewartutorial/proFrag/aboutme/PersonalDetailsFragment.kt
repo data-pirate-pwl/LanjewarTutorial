@@ -38,20 +38,21 @@ class PersonalDetailsFragment : Fragment() {
             @SuppressLint("CheckResult")
             override fun onDataChange(p0: DataSnapshot) {
 
-                 uname.text=p0.child(userr!!.uid).child("username").value.toString()+"  "
-                 sname.text=p0.child(userr!!.uid).child("name").value.toString()+"  "
-                 fname.text=p0.child(userr!!.uid).child("fname").value.toString()+"  "
-                 mname.text=p0.child(userr!!.uid).child("mname").value.toString()+"  "
-                 lname.text=p0.child(userr!!.uid).child("lname").value.toString()+"  "
-                   dob.text=p0.child(userr!!.uid).child("dob").value.toString()+ "  "
-                aadhar.text=p0.child(userr!!.uid).child("aadhar").value.toString()+ "  "
-                gender.text=p0.child(userr!!.uid).child("gender").value.toString()+ "  "
+                 uname?.text=p0.child(userr!!.uid).child("username").value.toString()+"  "
+                 sname?.text=p0.child(userr!!.uid).child("name").value.toString()+"  "
+                 fname?.text=p0.child(userr!!.uid).child("fname").value.toString()+"  "
+                 mname?.text=p0.child(userr!!.uid).child("mname").value.toString()+"  "
+                 lname?.text=p0.child(userr!!.uid).child("lname").value.toString()+"  "
+                   dob?.text=p0.child(userr!!.uid).child("dob").value.toString()+ "  "
+                aadhar?.text=p0.child(userr!!.uid).child("aadhar").value.toString()+ "  "
+                gender?.text=p0.child(userr!!.uid).child("gender").value.toString()+ "  "
                 Glide.with(this@PersonalDetailsFragment).load(p0.child(userr!!.uid).child("profile").value.toString()).into(pro)
-                pb.visibility = View.INVISIBLE
+                pb?.visibility = View.INVISIBLE
 
             }
         })
 
         return root
     }
+
 }

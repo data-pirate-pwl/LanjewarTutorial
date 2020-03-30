@@ -73,7 +73,7 @@ open class AboutmeFragment : Fragment() , View.OnClickListener {
         }
         )
         val btn_01:Button=root.findViewById(R.id.personal_details)
-        val btn_02:Button=root.findViewById(R.id.apply)
+        val btn_02:Button=root.findViewById(R.id.contact)
         val btn_03:Button=root.findViewById(R.id.course)
 
         btn_01.setOnClickListener(this)
@@ -93,9 +93,9 @@ open class AboutmeFragment : Fragment() , View.OnClickListener {
                 fragment = PersonalDetailsFragment()
                 replaceFragment(fragment)
             }
-            R.id.apply ->
+            R.id.contact ->
             {
-                fragment = ApplyForCourseFragment()
+                fragment = ContactDetailsFragment()
                 replaceFragment(fragment)
             }
             R.id.course ->

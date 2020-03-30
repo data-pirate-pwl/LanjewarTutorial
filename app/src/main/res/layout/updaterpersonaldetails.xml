@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/uname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Username"
+               />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+
+            <EditText
+                android:layout_marginTop="15dp"
+
+                android:id="@+id/uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Unique Identification Number"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/sname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Name"
+                />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Father's Name"
+                />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/mname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Mother's Name"
+                />
+
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <EditText
+                android:layout_marginTop="15dp"
+                android:id="@+id/lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Last Name"
+                />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:textSize="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : " />
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Female" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textSize="18dp"
+                    android:id="@+id/tex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth : " />
+
+                <TextView
+                    android:layout_below="@+id/tex"
+                    android:id="@+id/date_of_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="dd/mm/yyyy"
+                    android:inputType="text"
+                    android:textSize="18dp"
+                 />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent">
+
+          <Button
+              android:id="@+id/submit"
+              android:layout_marginTop="20sp"
+              android:layout_marginLeft="50dp"
+              android:layout_marginRight="50dp"
+              android:layout_marginBottom="20sp"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:text="Submit"
+              android:textSize="25dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
