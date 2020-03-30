@@ -1,5 +1,7 @@
 package com.example.lanjewartutorial
 
+import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.login_layout.*
 class LoginActivity : AppCompatActivity()
 {
     lateinit var mAuth: FirebaseAuth
+    lateinit var nDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -54,11 +57,7 @@ class LoginActivity : AppCompatActivity()
         }
         else
         {
-            Thread(Runnable {
-                this@LoginActivity.runOnUiThread(java.lang.Runnable {
-                    progress_Bar.visibility = View.VISIBLE
-                })
-            }).start()
+            nDialog = ProgressDialog.show(this,"The Tuition Centre","Signing in...",true);
             Toast.makeText(this@LoginActivity,"Signing in , Please Wail...",Toast.LENGTH_LONG).show()
 
 
@@ -74,31 +73,40 @@ class LoginActivity : AppCompatActivity()
                         startActivity(intent)}
                         else
                         {
+                            nDialog.dismiss()
+                            val dialogBuilder = android.app.AlertDialog.Builder(this)
 
-                            Toast.makeText(this@LoginActivity,"User Not Yet Verified",Toast.LENGTH_SHORT).show()
-                            mAuth.signOut()
-                            Thread(Runnable {
-                                // dummy thread mimicking some operation whose progress cannot be tracked
-
-                                // display the indefinite progressbar
-                                this@LoginActivity.runOnUiThread(java.lang.Runnable {
-                                    progress_Bar.visibility = View.INVISIBLE
+                            dialogBuilder.setMessage("You have not yet verified your E-mail account. Please Check your inbox to verify.")
+                                .setCancelable(false)
+                                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                        dialog, id -> startActivity(intent)
                                 })
-                            }).start()
+
+                            val alert = dialogBuilder.create()
+                            // set title for alert dialog box
+                            alert.setTitle("The Tuition Centre")
+                            // show alert dialog
+                            mAuth.signOut()
+                            nDialog.dismiss()
+                            alert.show()
                         }
                     }
                     else
                     {
-                        Toast.makeText(this@LoginActivity,"Error "+task.exception!!.message,Toast.LENGTH_SHORT).show()
-                        mAuth.signOut()
-                        Thread(Runnable {
-                            // dummy thread mimicking some operation whose progress cannot be tracked
 
-                            // display the indefinite progressbar
-                            this@LoginActivity.runOnUiThread(java.lang.Runnable {
-                                progress_Bar.visibility = View.INVISIBLE
+                        nDialog.dismiss()
+                        val dialogBuilder = android.app.AlertDialog.Builder(this)
+
+                        dialogBuilder.setMessage("Error : ${task.exception!!.message} !")
+                            .setCancelable(false)
+                            .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                    dialog, id -> dialog.dismiss()
                             })
-                        }).start()
+
+                        val alert = dialogBuilder.create()
+                        alert.setTitle("The Tuition Centre")
+                        mAuth.signOut()
+                        alert.show()
                     }
                 }
         }

@@ -1,9 +1,12 @@
 package com.example.lanjewartutorial
 
+import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -16,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var mAuth:FirebaseAuth
     lateinit var refUsers:DatabaseReference
     private var firebaseUserID:String=""
+    lateinit var nDialog:ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +64,15 @@ class RegisterActivity : AppCompatActivity() {
         }
         else
         {
-            Thread(Runnable {
-                // dummy thread mimicking some operation whose progress cannot be tracked
 
-                // display the indefinite progressbar
-                this@RegisterActivity.runOnUiThread(java.lang.Runnable {
-                    progress_Bar.visibility = View.VISIBLE
-                })
-            }).start()
-
+                     nDialog = ProgressDialog.show(this,"The Tuition Centre","Registration in process..",true);
             Toast.makeText(this@RegisterActivity,"Registration In Process, Please Wail...",Toast.LENGTH_LONG).show()
             mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener{task ->
                     if(task.isSuccessful) {
-                        mAuth.currentUser!!.sendEmailVerification().addOnCompleteListener{task ->
+                        mAuth.currentUser!!.sendEmailVerification().addOnCompleteListener { task ->
 
-                            if(task.isSuccessful) {
+                            if (task.isSuccessful) {
                                 firebaseUserID = mAuth.currentUser!!.uid
                                 refUsers = FirebaseDatabase.getInstance().reference.child("Users")
                                     .child(firebaseUserID)
@@ -102,7 +99,7 @@ class RegisterActivity : AppCompatActivity() {
                                 userHashMap["fname"] = ".."
                                 userHashMap["mname"] = ".."
                                 userHashMap["lname"] = ".."
-                                userHashMap["gender"]=".."
+                                userHashMap["gender"] = ".."
                                 userHashMap["lclassgrade"] = "0"
                                 userHashMap["class10"] = "0"
                                 userHashMap["class12"] = "0"
@@ -112,31 +109,54 @@ class RegisterActivity : AppCompatActivity() {
                                         if (task.isSuccessful) {
                                             val intent =
                                                 Intent(this@RegisterActivity, MainActivity::class.java)
-                                            startActivity(intent)
-                                        }
-                                    }
-                                mAuth.signOut()
-                                Toast.makeText(this@RegisterActivity, "A verification Link Is Sent To your E-Mail ID,Click Link To verify.", Toast.LENGTH_LONG).show()
-                            }
 
+                                            val dialogBuilder = android.app.AlertDialog.Builder(this)
+
+                                            dialogBuilder.setMessage("An E-mail Verification link is mailed to your registered E-mail account.Please Verify your E-mail using link to complete registration.")
+                                                .setCancelable(false)
+                                                .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                                        dialog, id -> startActivity(intent)
+                                                })
+
+                                            val alert = dialogBuilder.create()
+                                            // set title for alert dialog box
+                                            alert.setTitle("The Tuition Centre")
+                                            // show alert dialog
+                                            mAuth.signOut()
+                                            nDialog.dismiss()
+                                            alert.show()
+
+                                        }
+
+                                    }
                             }
                         }
+                    }
 
 
 
 
 
                         else
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Error" + task.exception!!.message,
-                            Toast.LENGTH_LONG
-                        ).show()
-                    Thread(Runnable {
-                        this@RegisterActivity.runOnUiThread(java.lang.Runnable {
-                            progress_Bar.visibility = View.INVISIBLE
-                        })
-                    }).start()
+                    {
+                        nDialog.dismiss()
+                        val dialogBuilder = android.app.AlertDialog.Builder(this)
+
+                        dialogBuilder.setMessage("Error : ${task.exception!!.message} !")
+                            .setCancelable(false)
+                            .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                    dialog, id -> dialog.dismiss()
+                            })
+
+                        val alert = dialogBuilder.create()
+                        // set title for alert dialog box
+                        alert.setTitle("The Tuition Centre")
+                        // show alert dialog
+                        alert.show()
+                    }
+
+
+
 
                 }
         }
