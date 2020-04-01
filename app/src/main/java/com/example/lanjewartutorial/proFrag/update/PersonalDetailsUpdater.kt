@@ -14,14 +14,19 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
 import com.example.lanjewartutorial.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_personaldetailsupdater.*
+import kotlinx.android.synthetic.main.fragment_profile_details_1.*
 import kotlinx.android.synthetic.main.updaterpersonaldetails.*
+import kotlinx.android.synthetic.main.updaterpersonaldetails.fname
+import kotlinx.android.synthetic.main.updaterpersonaldetails.lname
+import kotlinx.android.synthetic.main.updaterpersonaldetails.mname
+import kotlinx.android.synthetic.main.updaterpersonaldetails.sname
 import kotlinx.coroutines.delay
 import java.lang.Exception
 import java.util.*
@@ -41,7 +46,7 @@ open class PersonalDetailsUpdater :Fragment() {
     private var mYear:Int = 0
     private var mMonth:Int = 0
     private var mDay:Int = 0
-    lateinit var day:String
+    var day:String = "dd/mm/yyyy"
     lateinit var nDialog:ProgressDialog
 
     @SuppressLint("SetTextI18n")
@@ -55,7 +60,25 @@ open class PersonalDetailsUpdater :Fragment() {
         val root = inflater.inflate(R.layout.fragment_personaldetailsupdater, container, false)
 
         mAuth = FirebaseAuth.getInstance()
+        val userr = mAuth.currentUser
+        refUsers = FirebaseDatabase.getInstance().getReference("Users")
+        refUsers.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
 
+            }
+
+            @SuppressLint("CheckResult")
+            override fun onDataChange(p0: DataSnapshot) {
+
+                try {
+
+
+                    user.text = p0.child(userr!!.uid).child("username").value.toString() + "  "
+                } catch (e: Exception) {
+                }
+            }
+        }
+        )
         val radio=root.findViewById(R.id.gen) as RadioGroup
         radio.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId)
@@ -66,24 +89,26 @@ open class PersonalDetailsUpdater :Fragment() {
 
         }
 
-        val userr = mAuth.currentUser
-        refUsers = FirebaseDatabase.getInstance().getReference("Users")
+
+
         date=root.findViewById(R.id.date_of_birth)
-        date.setOnClickListener(View.OnClickListener { // Process to get Current Date
-            val c: Calendar = Calendar.getInstance()
-            mYear = c.get(Calendar.YEAR)
-            mMonth = c.get(Calendar.MONTH)
-            mDay = c.get(Calendar.DAY_OF_MONTH)
+        date.setOnClickListener(View.OnClickListener { //
+              val c: Calendar = Calendar.getInstance()
+              mYear = c.get(Calendar.YEAR)
+              mMonth = c.get(Calendar.MONTH)
+              mDay = c.get(Calendar.DAY_OF_MONTH)
 
             // Launch Date Picker Dialog
             val dpd = DatePickerDialog(
                 context!!,
                 OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                   date.setText(dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
-                    day="$dayOfMonth-${monthOfYear+1}-$year"
+                    date.setText(dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
+                    day = "$dayOfMonth-${monthOfYear + 1}-$year"
                 }, mYear, mMonth, mDay
             )
             dpd.show()
+
+
 
 
             refUsers = FirebaseDatabase.getInstance().reference.child("Users")
@@ -95,15 +120,50 @@ open class PersonalDetailsUpdater :Fragment() {
 
 
                 btn_submit.setOnClickListener {
-                    nDialog = ProgressDialog.show(activity,"The Tuition Centre","Uploading Data..",true);
-                    stu_name=sname?.text.toString()
-                    father=fname?.text.toString()
-                    mother=mname?.text.toString()
-                    last=lname?.text.toString()
-                    datebirth=date_of_birth?.text.toString()
-                    aadhar=uid?.text.toString()
-                    gender=textView2.text.toString()
-                    submitdata()
+                    if(sname.text.isEmpty())
+                    {
+                        sname.error = "Required"
+                    }
+                    else if(fname.text.isEmpty())
+                    {
+                        fname.error = "Required"
+                    }
+                    else if(mname.text.isEmpty())
+                    {
+                        mname.error = "Required"
+                    }
+                    else if(lname.text.isEmpty())
+                    {
+                        lname.error = "Required"
+                    }
+                    else if(date_of_birth.text==" dd/mm/yyyy")
+                    {
+                        date_of_birth.error="Required"
+                    }
+                    else if(uid.text.isEmpty())
+                    {
+                        uid.error="Required"
+                    }
+                    else if(textView2.text.equals(" Gender : "))
+                    {
+                        textView2.error="Required"
+                    }
+                    else {
+                        nDialog = ProgressDialog.show(
+                            activity,
+                            "The Tuition Centre",
+                            "Uploading Data..",
+                            true
+                        );
+                        stu_name = sname?.text.toString()
+                        father = fname?.text.toString()
+                        mother = mname?.text.toString()
+                        last = lname?.text.toString()
+                        datebirth = date_of_birth?.text.toString()
+                        aadhar = uid?.text.toString()
+                        gender = textView2.text.toString()
+                        submitdata()
+                    }
 
 
 

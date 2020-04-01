@@ -93,11 +93,6 @@ open class AboutmeFragment : Fragment() , View.OnClickListener {
                 fragment = PersonalDetailsFragment()
                 replaceFragment(fragment)
             }
-            R.id.contact ->
-            {
-                fragment = ContactDetailsFragment()
-                replaceFragment(fragment)
-            }
             R.id.course ->
             {
                 fragment = AppliedCourseFragment()

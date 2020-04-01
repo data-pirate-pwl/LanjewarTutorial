@@ -150,38 +150,44 @@ class ResetActivity : AppCompatActivity() {
         }
         else
         {
-            Thread(Runnable {
-
-                this@ResetActivity.runOnUiThread(java.lang.Runnable {
-                    progress_Bar.visibility = View.VISIBLE
-                })
-            }).start()
+            nDialog = ProgressDialog.show(this,"The Tuition Centre","Checking...",true);
             Toast.makeText(this@ResetActivity,"Processing....",Toast.LENGTH_SHORT).show()
             mAuth.sendPasswordResetEmail(email).addOnCompleteListener{
                 task ->
                 if(task.isSuccessful)
                 {
-                    Toast.makeText(this@ResetActivity,"Password Reset Link Sent Successfully",Toast.LENGTH_SHORT).show()
                     val intent= Intent(this@ResetActivity,LoginActivity::class.java)
-                    startActivity(intent)
-                    Thread(Runnable {
+                    val dialogBuilder = android.app.AlertDialog.Builder(this)
 
-                        this@ResetActivity.runOnUiThread(java.lang.Runnable {
-                            progress_Bar.visibility = View.INVISIBLE
+                    dialogBuilder.setMessage("Password reset link sent Successfully..")
+                        .setCancelable(false)
+                        .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                dialog, id -> startActivity(intent)
                         })
-                    }).start()
+
+                    val alert = dialogBuilder.create()
+                    alert.setTitle("The Tuition Centre")
+                    nDialog.dismiss()
+                    alert.show()
                 }
                 else
                 {
-                    Toast.makeText(this@ResetActivity,"Error "+task.exception!!.message,Toast.LENGTH_SHORT).show()
-                    val intent= Intent(this@ResetActivity,ResetActivity::class.java)
-                    startActivity(intent)
-                    Thread(Runnable {
 
-                        this@ResetActivity.runOnUiThread(java.lang.Runnable {
-                            progress_Bar.visibility = View.INVISIBLE
+                    val intent= Intent(this@ResetActivity,ResetActivity::class.java)
+                    val dialogBuilder = android.app.AlertDialog.Builder(this)
+
+                    dialogBuilder.setMessage("Error ${task.exception!!.message}")
+                        .setCancelable(false)
+                        .setPositiveButton("Proceed", DialogInterface.OnClickListener {
+                                dialog, id -> startActivity(intent)
+
                         })
-                    }).start()
+
+                    val alert = dialogBuilder.create()
+                    alert.setTitle("The Tuition Centre")
+                    nDialog.dismiss()
+                    alert.show()
+
                 }
             }
         }

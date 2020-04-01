@@ -3,451 +3,253 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout android:orientation="vertical"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
         tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/pro"
+                android:layout_marginTop="50dp"
+                android:layout_width="180dp"
+                android:layout_marginBottom="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="200dp"/>
 
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#C5F1F6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textSize="26dp"
-                        android:text=" Username : "/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#C5F1F6"
-                        android:id="@+id/uname"
-                        android:textAlignment="textEnd"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading  "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-
-            <LinearLayout android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_height="0dp"
-                android:layout_width="fill_parent">
-
-
-
-
-                <LinearLayout android:orientation="horizontal"
-                    android:layout_height="fill_parent"
-                    android:layout_width="fill_parent">
-
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_height="fill_parent"
-                        android:layout_width="0dp">
                         <TextView
+                            android:textColor="#ffffff"
+                            android:layout_below="@+id/pro"
+                            android:id="@+id/t1"
                             android:singleLine="true"
-                            android:background="#F6CDCD"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textSize="26dp"
-                            android:text=" Stu. Name :"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_height="fill_parent"
-                        android:layout_width="0dp">
+                            android:text="Username : "/>
                         <TextView
+                            android:layout_below="@+id/t1"
+                            android:background="#C5F1F6"
+                            android:id="@+id/uname"
+                            android:textSize="26dp"
                             android:textStyle="bold"
-                            android:background="#F6CDCD"
-                            android:id="@+id/sname"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading  "/>
+
+                            <TextView
+                                android:textColor="#ffffff"
+                                android:id="@+id/t2"
+                                android:layout_below="@+id/uname"
+                                android:singleLine="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="26dp"
+                                android:text="Student's Name :"/>
+                            <TextView
+                                android:layout_below="@id/t2"
+                                android:textStyle="bold"
+                                android:background="#C5F1F6"
+                                android:id="@+id/sname"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="26dp"
+                                android:text=" Loading  "/>
+
+                        <TextView
+                            android:id="@+id/t3"
+                            android:layout_below="@+id/sname"
+                            android:singleLine="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textSize="26dp"
-                            android:textAlignment="viewEnd"
-                            android:text=" Loading  "/>
-                    </LinearLayout>
-                </LinearLayout>
+                            android:textColor="#ffffff"
+                            android:text="Father's Name :"/>
+                        <TextView
+                            android:layout_below="@id/t3"
+                            android:background="#C5F1F6"
+                            android:id="@+id/fname"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading  "/>
+                        <TextView
+                            android:id="@+id/t4"
+                            android:layout_below="@id/fname"
+                            android:singleLine="true"
+                            android:textSize="26dp"
+                            android:textColor="#ffffff"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Mother's Name :"/>
+                        <TextView
+                            android:layout_below="@+id/t4"
+                            android:background="#C5F1F6"
+                            android:id="@+id/mname"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading "/>
+                        <TextView
+                            android:id="@+id/t5"
+                            android:layout_below="@+id/mname"
+                            android:singleLine="true"
+                            android:textSize="26dp"
+                            android:textColor="#ffffff"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Last Name : "/>
+                        <TextView
+                            android:layout_below="@+id/t5"
+                            android:background="#C5F1F6"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:id="@+id/lname"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=" Loading "/>
+                        <TextView
+                            android:id="@+id/t6"
+                            android:layout_below="@+id/lname"
+                            android:singleLine="true"
+                            android:textSize="26dp"
+                            android:textColor="#ffffff"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Birth Date : "/>
+                        <TextView
+                            android:layout_below="@+id/t6"
+                            android:background="#C5F1F6"
+                            android:id="@+id/dob"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading "/>
+                        <TextView
+                            android:id="@+id/t7"
+                            android:layout_below="@+id/dob"
+                            android:singleLine="true"
+                            android:textSize="26dp"
+                            android:textColor="#ffffff"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Unique Identification Number : "/>
+                        <TextView
+                            android:layout_below="@+id/t7"
+                            android:background="#C5F1F6"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:id="@+id/aadhar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading "/>
+                        <TextView
+                            android:id="@+id/t8"
+                            android:layout_below="@+id/aadhar"
+                            android:textSize="26dp"
+                            android:singleLine="true"
+                            android:textColor="#ffffff"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Gender : "/>
+                        <TextView
+                            android:layout_below="@+id/t8"
+                            android:background="#C5F1F6"
+                            android:id="@+id/gender"
+                            android:textSize="26dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Loading "/>
+                <TextView
+                    android:textColor="#ffffff"
+                    android:layout_below="@+id/gender"
+                    android:id="@+id/t9"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="26dp"
+                    android:text="Contact Number : "/>
+                <TextView
+                    android:layout_below="@+id/t9"
+                    android:background="#C5F1F6"
+                    android:id="@+id/cno"
+                    android:textSize="26dp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Loading  "/>
+                <TextView
+                    android:id="@+id/t10"
+                    android:layout_below="@+id/cno"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="26dp"
+                    android:textColor="#ffffff"
+                    android:text="E-mail Address : "/>
+                <TextView
+                    android:layout_below="@id/t10"
+                    android:background="#C5F1F6"
+                    android:id="@+id/eid"
+                    android:textSize="26dp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Loading  "/>
+                <TextView
+                    android:id="@+id/t11"
+                    android:layout_below="@id/eid"
+                    android:singleLine="true"
+                    android:textSize="26dp"
+                    android:textColor="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Address : "/>
 
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
+                <TextView
+                    android:inputType="textMultiLine"
+                    android:layout_below="@+id/t11"
+                    android:background="#C5F1F6"
+                    android:id="@+id/pad"
+                    android:textSize="26dp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#C5F1F6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textSize="26dp"
-                        android:text=" Father Name :"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#C5F1F6"
-                        android:id="@+id/fname"
-                        android:textAlignment="textEnd"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading  "/>
-                </LinearLayout>
-            </LinearLayout>
 
-        </LinearLayout>
+                    android:text="Loading"/>
+                <TextView
+                    android:id="@+id/t12"
+                    android:layout_below="@+id/pad"
+                    android:singleLine="true"
+                    android:textSize="26dp"
+                    android:textColor="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="City : "/>
+                <TextView
+                    android:layout_below="@+id/t12"
+                    android:background="#C5F1F6"
+                    android:textSize="26dp"
+                    android:textStyle="bold"
+                    android:id="@+id/city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=" Loading "/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_below="@+id/city"/>
 
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#F6CDCD"
-                        android:textSize="26dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" Mother Name :"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#F6CDCD"
-                        android:id="@+id/mname"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#C5F1F6"
-                        android:textSize="26dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" Last Name : "/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#C5F1F6"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:id="@+id/lname"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" Loading "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#F6CDCD"
-                        android:textSize="26dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" Birth Date : "/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#F6CDCD"
-                        android:id="@+id/dob"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:singleLine="true"
-                        android:background="#C5F1F6"
-                        android:textSize="26dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" UID No : "/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#C5F1F6"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:id="@+id/aadhar"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-
-                        android:background="#F6CDCD"
-                        android:textSize="26dp"
-                        android:singleLine="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text=" Gender : "/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-                    <TextView
-                        android:background="#F6CDCD"
-                        android:id="@+id/gender"
-                        android:textSize="26dp"
-                        android:textStyle="bold"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Loading "/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="fill_parent">
-            <LinearLayout android:orientation="horizontal"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:layout_width="0dp">
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-
-
+        </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.lanjewartutorial.proFrag.aboutme
 
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,7 @@ class PersonalDetailsFragment : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
         val userr=mAuth.currentUser
+       val nDialog = ProgressDialog.show(activity,"The Tuition Centre","Loading...",true);
         refUsers = FirebaseDatabase.getInstance().getReference("Users")
         refUsers.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -49,9 +51,13 @@ class PersonalDetailsFragment : Fragment() {
                     dob?.text = p0.child(userr!!.uid).child("dob").value.toString() + "  "
                     aadhar?.text = p0.child(userr!!.uid).child("aadhar").value.toString() + "  "
                     gender?.text = p0.child(userr!!.uid).child("gender").value.toString() + "  "
+                    cno.text = p0.child(userr!!.uid).child("studentmobile").value.toString()
+                    eid.text = p0.child(userr!!.uid).child("studentemail").value.toString()
+                    pad.text = p0.child(userr!!.uid).child("permanantaddress").value.toString()
+                    city.text = p0.child(userr!!.uid).child("city").value.toString()
                     Glide.with(this@PersonalDetailsFragment)
                         .load(p0.child(userr.uid).child("profile").value.toString()).into(pro)
-                    pb?.visibility = View.INVISIBLE
+                    nDialog.dismiss()
                 }
                 catch (e:Exception)
                 {

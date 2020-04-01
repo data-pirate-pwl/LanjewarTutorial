@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity()
         }
         else
         {
-            nDialog = ProgressDialog.show(this,"The Tuition Centre","Signing in...",true);
+            nDialog = ProgressDialog.show(this,"The Tuition Centre","Signing in...",true)
             Toast.makeText(this@LoginActivity,"Signing in , Please Wail...",Toast.LENGTH_LONG).show()
 
 

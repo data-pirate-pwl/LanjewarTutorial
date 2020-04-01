@@ -73,6 +73,7 @@ class UpdateFragment : Fragment(),View.OnClickListener {
         val btn_contact_details_update: Button = root.findViewById(R.id.contact)
         val btn_profile_picture_update: Button = root.findViewById(R.id.pp)
         btn_personal_details_update.setOnClickListener(this)
+        btn_contact_details_update.setOnClickListener(this)
         return root
 
     }
@@ -112,7 +113,7 @@ class UpdateFragment : Fragment(),View.OnClickListener {
             }
             R.id.contact ->
             {
-               // fragment =
+                fragment = ContactDetailsUpdater()
                 replaceFragment(fragment)
             }
             R.id.course ->

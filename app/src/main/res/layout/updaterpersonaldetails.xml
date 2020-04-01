@@ -20,11 +20,11 @@
                 android:layout_height="wrap_content"
                 android:text=" Username : " />
 
-            <EditText
+            <TextView
                 android:textColor="#ffffff"
-                android:textSize="19dp"
+                android:textSize="22sp"
                 android:singleLine="true"
-                android:id="@+id/uname"
+                android:id="@+id/user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
