@@ -22,7 +22,7 @@
                 android:id="@+id/t1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textColor="#ffffff"
                 android:text="Contact Number : "/>
             <EditText
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textColor="#ffffff"
                 android:hint="Contact number "
                 android:layout_below="@+id/t1"/>
@@ -38,7 +38,7 @@
                 android:id="@+id/lc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textColor="#ffffff"
                 android:visibility="invisible"
                 android:layout_below="@+id/t1"/>
@@ -47,10 +47,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_rectangle"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textColor="#ffffff"
                 android:text="Verify"
                 android:layout_below="@+id/contact_no_updater"/>
+            <TextView
+                android:layout_marginTop="50dp"
+                android:id="@+id/kk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:text="Address : "/>
+            <MultiAutoCompleteTextView
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/kk"
+                android:textSize="24sp"
+                android:textColor="#ffffff"/>
+
         </RelativeLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
